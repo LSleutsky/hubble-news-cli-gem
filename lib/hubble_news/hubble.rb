@@ -1,0 +1,5 @@
+class HubbleNews::Hubble
+
+  
+
+end

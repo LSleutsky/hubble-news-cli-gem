@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+
+require "bundler/setup"
+require "hubble_news"
+
+HubbleNews::CLI.new
+
+puts "\n"
+puts "********************"
+puts " LATEST HUBBLE NEWS"
+puts "********************"
+puts "\n"

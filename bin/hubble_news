@@ -1,12 +1,13 @@
 #!/usr/bin/env ruby
 
-require "bundler/setup"
-require "hubble_news"
-
-HubbleNews::CLI.new
+# require main environment file
+require_relative "../lib/hubble_news.rb"
 
 puts "\n"
-puts "********************"
-puts " LATEST HUBBLE NEWS"
-puts "********************"
+puts "***************************"
+puts "* HUBBLE SITE NEWS CENTER *"
+puts "***************************"
+
+# run the cli
+HubbleNews::CLI.new
 puts "\n"

@@ -1,8 +1,7 @@
 # HubbleNews
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/hubble_news`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This small CLI gem will access the news archives from Hubble Space Telescope's website located at http://hubblesite.org/newscenter/archive/,
+and list each article available, allowing a user to select from said articles, and get a little more information displayed to them.
 
 ## Installation
 
@@ -33,4 +32,3 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/hubble_news.
-

@@ -4,9 +4,9 @@
 require_relative "../lib/hubble_news.rb"
 
 puts "\n"
-puts "***************************"
-puts "* HUBBLE SITE NEWS CENTER *"
-puts "***************************"
+puts "*******************************"
+puts "*** HUBBLE SITE NEWS CENTER ***"
+puts "*******************************"
 
 # run the cli
 HubbleNews::CLI.new

@@ -21,5 +21,5 @@
       + hubble_news.rb will load all the required libraries and ruby files that make up the program.
     + ./lib will contain a hubble_news folder that will house the main code for the cli - **cli.rb**.
       + ./lib/hubble_news will also contain a **hubble.rb** file that will provide helper and / or function methods for **cli.rb.**
-      + ./lib/hubble_news will have a **version.rb** file that was auto generated during the *bundle gem command line process.*
+      + ./lib/hubble_news will have a **version.rb** file that was auto generated during the 'bundle gem' *command line process.*
     + hubble_news.gemspec is an *auto generated file* that houses all necessary dependencies to make the program run.

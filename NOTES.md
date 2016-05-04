@@ -26,7 +26,16 @@
 
   3. Project & File Domains
     1. ./bin/hubble_news
-    2. ./lib/hubble_news.rb
+      + Introductory text
+      + Runs the executable by calling `HubbleNews::CLI.new`
+    2. ./lib/hubble_news.rb - *environment file*
+      + require `nokogiri`
+      + require `open-uri`
+      + require `pry`
+      + require_relative `./hubble_news/version`
+      + require_relative `./hubble_news/cli`
+      + require_relative `./hubble_news/hubble`
     3. ./lib/hubble_news/cli.rb
     4. ./lib/hubble_news/hubble.rb
     5. ./lib/hubble_news/version.rb
+      + Gem `VERSION`

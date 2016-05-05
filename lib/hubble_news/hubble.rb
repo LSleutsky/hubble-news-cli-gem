@@ -34,11 +34,11 @@ class HubbleNews::Hubble
       @site = "http://hubblesite.org#{hyperlink.attr("href")}"
     end
 
-    # let nokogiri to cycle through each link and scrape necessary info from each page for corresponding archive
+    # let nokogiri to cycle through each link and use it as the pages to be scraped for necessary info for corresponding archive
     doc = links.collect do |link|
-      @domain = Nokogiri::HTML(open(link))
+      domain = Nokogiri::HTML(open(link))
       full_info = self.new
-      full_info.story = @domain.search("div#news-release .news-release-container #news-release-body p").text.strip
+      full_info.story = domain.search("div#news-release .news-release-container #news-release-body p").text.strip
     end
   end
 

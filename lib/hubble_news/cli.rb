@@ -42,15 +42,30 @@ class HubbleNews::CLI
         if answer == "list"
           puts "\n"
           hubble_news
-          puts "\nWhich story would you like to learn more about? (pick a number or type 'exit' to terminate): "
+          puts "\nWhich story would you like to learn more about?"
+          puts "(pick a number from the list or type 'exit' to terminate)"
         elsif answer == "more"
-          puts "\n"
-          puts "#{@full_info[input.to_i - 1]}"
-          #puts "\nWould you like to go back to the archive, or quit? (type 'list' for archive or 'exit' to quit)"
+          puts "\n#{@full_info[input.to_i - 1]}"
+          puts "\nWould you like to go back to the archive, or quit?"
+          puts "(type 'list' for archive or 'exit' to quit)"
+          answer = gets.strip.downcase
+
+          if answer == "list"
+            puts "\n"
+            hubble_news
+            puts "\nWhich story would you like to learn more about?"
+            puts "(pick a number from the list or type 'exit' to terminate)"
+          elsif answer == "exit"
+            puts "\nGoodbye! See ya next time, space lover..."
+            break
+          end
+        elsif answer == "exit"
+          puts "\nGoodbye! See ya next time, space lover..."
           break
         end
-      else
-        puts "Not sure what you need, please either type 'exit' or choose an archive by number: "
+      elsif input == "exit"
+        puts "\nGoodbye! See ya next time, space lover..."
+        break
       end
     end
   end

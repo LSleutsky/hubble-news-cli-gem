@@ -3,28 +3,54 @@ class HubbleNews::CLI
   def initialize
     puts "Here are the latest Hubble Space Telescope updates: "
     puts "\n"
+
     hubble_news
+    run!
   end
 
   def hubble_news
-    # set the return of the scrape_hubble_titles instance method to @archives instance variables
+    # set the return of the scrape_hubble_titles class method to @archives instance variable
     @archives = HubbleNews::Hubble.scrape_hubble_titles
     # print out each of the news update archives
     @archives.each { |archive| puts "#{archive}" }
-    # set the return of the scrape_hubble_teaser instance method to @teasers instance variable
-    @teasers = HubbleNews::Hubble.scrape_hubble_teaser
-    @info = HubbleNews::Hubble.scrape_hubble_info
-    binding.pry
+
+    # set the return of the scrape_hubble_teaser class method to @teaser_info instance variable
+    @teaser_info = HubbleNews::Hubble.scrape_hubble_teaser
+
+    # set the return of the scrape_hubble_info class method to @full_info instance variable
+    @full_info = HubbleNews::Hubble.scrape_hubble_info
+  end
+
+  def run!
     input = nil
+    puts "\nWhich story would you like to learn more about?"
+    puts "(pick a number from the list or type 'exit' to terminate)"
+
     while input != "exit"
-      puts "\n"
-      puts "Which story would you like to learn more about? (pick a number or type 'exit' to terminate) "
       input = gets.strip.downcase
 
-      if input.to_i > 0
-        puts "\n"
-        puts "#{@archives[input.to_i - 1]}".upcase
-        puts "'#{@teasers[input.to_i - 1]}'"
+      if (input.to_i) > 0 && (input.to_i <= @archives.length)
+        # print and capitalize the title of the selected archive
+        puts "\n#{@archives[input.to_i - 1]}: ".upcase.gsub("#{input.to_i}. ", "")
+        # print teaser info text about the archive
+        puts "'#{@teaser_info[input.to_i - 1]}'"
+
+        puts "\nWould you like the full story?"
+        puts "(type 'more' for full story, 'list' to go back, or 'exit' to quit)"
+        answer = gets.strip.downcase
+
+        if answer == "list"
+          puts "\n"
+          hubble_news
+          puts "\nWhich story would you like to learn more about? (pick a number or type 'exit' to terminate): "
+        elsif answer == "more"
+          puts "\n"
+          puts "#{@full_info[input.to_i - 1]}"
+          #puts "\nWould you like to go back to the archive, or quit? (type 'list' for archive or 'exit' to quit)"
+          break
+        end
+      else
+        puts "Not sure what you need, please either type 'exit' or choose an archive by number: "
       end
     end
   end

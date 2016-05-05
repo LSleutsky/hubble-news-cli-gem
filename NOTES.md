@@ -36,6 +36,11 @@
       + require_relative `./hubble_news/cli`
       + require_relative `./hubble_news/hubble`
     3. ./lib/hubble_news/cli.rb
+      + `def hubble news` which holds necessary scraped information in instance variables
+      + `def run` is the method which runs the /bin file, executing prompts in the terminal for the user
     4. ./lib/hubble_news/hubble.rb
+      + `def self.scrape_hubble_titles` scrapes the main titles for each news archive
+      + `def self.scrape_hubble_teaser` scrapes the blurb of information for each news archive
+      + `def self.scrape_hubble_info` scrapes the external location links for the full story page corresponding to each news archive
     5. ./lib/hubble_news/version.rb
       + Gem `VERSION`

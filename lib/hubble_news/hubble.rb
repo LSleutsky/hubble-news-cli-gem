@@ -31,7 +31,7 @@ class HubbleNews::Hubble
     # gather all the links for the full story of each archive
     links = href.collect do |hyperlink|
       hyperlink.attribute("href")
-      @site = "http://hubblesite.org#{hyperlink.attr("href")}"
+      "http://hubblesite.org#{hyperlink.attr("href")}full/"
     end
 
     # let nokogiri to cycle through each link and use it as the pages to be scraped for necessary info for corresponding archive

@@ -4,19 +4,17 @@ class HubbleNews::CLI
     puts "Here are the latest Hubble Space Telescope updates: "
     puts "\n"
 
-    hubble_news
+    hubble_scraped_info
     run!
   end
 
-  def hubble_news
+  def hubble_scraped_info
     # set the return of the scrape_hubble_titles class method to @archives instance variable
     @archives = HubbleNews::Hubble.scrape_hubble_titles
     # print out each of the news update archives
     @archives.each { |archive| puts "#{archive}" }
-
     # set the return of the scrape_hubble_teaser class method to @teaser_info instance variable
     @teaser_info = HubbleNews::Hubble.scrape_hubble_teaser
-
     # set the return of the scrape_hubble_info class method to @full_info instance variable
     @full_info = HubbleNews::Hubble.scrape_hubble_info
   end
@@ -41,7 +39,7 @@ class HubbleNews::CLI
 
         if answer == "list"
           puts "\n"
-          hubble_news
+          hubble_scraped_info
           puts "\nWhich story would you like to learn more about?"
           puts "(pick a number from the list or type 'exit' to terminate)"
         elsif answer == "more"
@@ -52,7 +50,7 @@ class HubbleNews::CLI
 
           if answer == "list"
             puts "\n"
-            hubble_news
+            hubble_scraped_info
             puts "\nWhich story would you like to learn more about?"
             puts "(pick a number from the list or type 'exit' to terminate)"
           elsif answer == "exit"

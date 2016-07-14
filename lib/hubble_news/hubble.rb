@@ -26,9 +26,9 @@ class HubbleNews::Hubble
 
   # scraper for "more" info page
   def self.scrape_hubble_info
-    page = Nokogiri::HTML(open("http://hubblesite.org/newscenter/archive/"))
+    page = Nokogiri::HTML(open(@site))
     # the href attribute of each link contains the location of each news title archive, arranged by year and reference number
-    href = page.css("li.release-list .release-list-item .text-holder .release-title a")
+    href = page.search("li.release-list .release-list-item .text-holder .release-title a")
 
     # gather all the links for the full story of each archive
     links = href.collect do |hyperlink|
